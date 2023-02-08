@@ -17,6 +17,7 @@ imageio==2.24.0
 incremental==22.10.0
 itemadapter==0.7.0
 itemloaders==1.0.6
+iterative-stratification==0.1.7
 jmespath==1.0.1
 joblib==1.2.0
 kiwisolver==1.4.4
