@@ -44,7 +44,7 @@ def create_fold(df, save_path="input/train_folds.csv"):
         df.loc[
             val_idx, "kfold"
         ] = fold  # Store the fold number in the kfold column for the validation indices of that particular fold
-        # The above line is the crux of the fold creation process. Eg. for fold 0, We get the val_idx from mskf. 
+        # The above line is the crux of the fold creation process. Eg. for fold 0, We get the val_idx from mskf.
         # Then in the kfold column of all those indices we put in 0 as the fold number. This process repeats for all the folds.
     df.to_csv(save_path, index=False)  # Save the folds in a csv file
 

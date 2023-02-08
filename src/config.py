@@ -1,5 +1,6 @@
 import torch
 
+
 class CFG:
     n_splits = 5
     seed = 42

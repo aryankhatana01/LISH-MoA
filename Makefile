@@ -3,3 +3,6 @@ create_folds:
 
 run_training:
 	cd src && python3 train.py
+
+format_code:
+	black .
