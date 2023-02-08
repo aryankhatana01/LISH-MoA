@@ -11,3 +11,4 @@ class CFG:
     input_dir = "../input/"
     output_dir = "../models/"
     device = "cuda" if torch.cuda.is_available() else "cpu"
+    hidden_size = 256
