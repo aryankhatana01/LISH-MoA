@@ -17,3 +17,8 @@ This is a multi-label problem and for each ```sig_id``` we need to predict the 2
 - ```train_targets_nonscored.csv``` - Additional (optional) binary MoA responses for the training data. These are not predicted nor scored.
 - ```test_features.csv``` - Features for the test data. You must predict the probability of each scored MoA for each row in the test data.
 - ```sample_submission.csv``` - A submission file in the correct format.
+
+## How I'll be approaching the problem
+I'll be creating simple Linear Neural Network with a little feature engineering in the beginning. This solution won't be state of the art or even enough to get a good score but it'll be a good starting point for beginners to understand how to deal with tabular data using NN.
+
+First, I'll be creating the Dataset class to take input data and retrieve the features and the targets. The features would be in ```train_features.csv``` and the targets would be in ```train_targets_scored.csv```.
