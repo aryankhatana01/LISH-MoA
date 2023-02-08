@@ -22,3 +22,17 @@ This is a multi-label problem and for each ```sig_id``` we need to predict the 2
 I'll be creating simple Linear Neural Network with a little feature engineering in the beginning. This solution won't be state of the art or even enough to get a good score but it'll be a good starting point for beginners to understand how to deal with tabular data using NN.
 
 First, I'll be creating the Dataset class to take input data and retrieve the features and the targets. The features would be in ```train_features.csv``` and the targets would be in ```train_targets_scored.csv```.
+
+## Structure of the Project
+- ```input``` - Contains the input data
+- ```src``` - Contains the source code
+- ```README.md``` - This file
+- ```requirements.txt``` - Contains the requirements for the project
+- ```create_folds.py``` - Creates the validation folds for the data
+
+### In the ```src``` folder, we have the following files:
+- ```dataset.py``` - Contains the Dataset class
+- ```model.py``` - Contains the Model class
+- ```train.py``` - Contains the training loop
+- ```utils.py``` - Contains some utility functions
+maybe more...
