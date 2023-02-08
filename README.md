@@ -36,4 +36,5 @@ First, I'll be creating the Dataset class to take input data and retrieve the fe
 - ```model.py``` - Contains the Model class
 - ```train.py``` - Contains the training loop
 - ```utils.py``` - Contains some utility functions
+- ```config.py``` - Contains the configuration for the project
 maybe more...
