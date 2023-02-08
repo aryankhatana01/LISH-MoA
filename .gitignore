@@ -3,3 +3,6 @@
 
 # Input Data
 *.csv
+
+# pycache
+__pycache__/
