@@ -42,17 +42,17 @@ class Model(nn.Module):
         x = self.batch_norm1(x)  # Shape --> (batch_size, num_features)
         x = self.dropout1(x)  # Shape --> (batch_size, num_features)
         x = F.relu(self.dense1(x))  # Shape --> (batch_size, hidden_size)
-        print(x.shape)
+        # print(x.shape)
 
         x = self.batch_norm2(x)  # Shape --> (batch_size, hidden_size)
         x = self.dropout2(x)  # Shape --> (batch_size, hidden_size)
         x = F.relu(self.dense2(x))  # Shape --> (batch_size, hidden_size)
-        print(x.shape)
+        # print(x.shape)
 
         x = self.batch_norm3(x)  # Shape --> (batch_size, hidden_size)
         x = self.dropout3(x)  # Shape --> (batch_size, hidden_size)
         x = self.dense3(x)  # Shape --> (batch_size, num_targets)
-        print(x.shape)
+        # print(x.shape)
 
         return x
 
