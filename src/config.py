@@ -6,3 +6,4 @@ class CFG:
     lr = 1e-3
     num_workers = 4
     input_dir = "../input/"
+    output_dir = "../models/"
