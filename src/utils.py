@@ -1,5 +1,5 @@
 """
-This file conatins all the utility functions we might need.
+This file conatins all the utility functions and feature engineering we might need.
 """
 
 import random
