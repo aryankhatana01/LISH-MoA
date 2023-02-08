@@ -29,6 +29,7 @@ First, I'll be creating the Dataset class to take input data and retrieve the fe
 - ```README.md``` - This file
 - ```requirements.txt``` - Contains the requirements for the project
 - ```create_folds.py``` - Creates the validation folds for the data
+- ```data_vis.ipynb``` - A notebook to view the data and its shapes and maybe test out what the data would look like after feature engineering.
 
 ### In the ```src``` folder, we have the following files:
 - ```dataset.py``` - Contains the Dataset class
