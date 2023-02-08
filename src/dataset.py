@@ -8,6 +8,14 @@ from torch.utils.data import Dataset
 
 class MoADataset(Dataset):
     def __init__(self, feats, targets):
+        '''
+        Input:
+            feats: pd.DataFrame of shape (num_samples, num_features).
+            targets: pd.DataFrame of shape (num_samples, num_targets).
+
+        Returns:
+            None
+        '''
         self.feats = feats
         self.targets = targets
 
