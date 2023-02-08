@@ -1,8 +1,8 @@
 """
-Create folds for cross validation using the Multi-Label 
+Create folds for cross validation using the Multi-Label
 Stratified K-Folds from the Iterstrat Module.
 
-We do this for every project do evaluate the model 
+We do this for every project do evaluate the model
 on unseen data and make sure it isn't overfitting the training data.
 """
 
@@ -11,7 +11,6 @@ from iterstrat.ml_stratifiers import (
     MultilabelStratifiedKFold,
 )  # To create stratified folds
 from src.config import CFG  # To get the number of folds from the config file
-import os
 
 
 # Function to create folds
@@ -29,7 +28,7 @@ def create_fold(df, save_path="input/train_folds.csv"):
         "kfold"
     ] = -1  # Create a new column in the DataFrame called kfold to store the folds
     df = df.sample(frac=1).reset_index(drop=True)  # Shuffle the data
-    
+
     y = df.drop(
         ["sig_id"], axis=1
     ).values  # Get the labels by dropping the sig_id column beacuse it is not a target
@@ -45,7 +44,8 @@ def create_fold(df, save_path="input/train_folds.csv"):
         df.loc[
             val_idx, "kfold"
         ] = fold  # Store the fold number in the kfold column for the validation indices of that particular fold
-        # The above line is the crux of the fold creation process. Eg. for fold 0, We get the val_idx from mskf. Then in the kfold column of all those indices we put in 0 as the fold number. This process repeats for all the folds.
+        # The above line is the crux of the fold creation process. Eg. for fold 0, We get the val_idx from mskf. 
+        # Then in the kfold column of all those indices we put in 0 as the fold number. This process repeats for all the folds.
     df.to_csv(save_path, index=False)  # Save the folds in a csv file
 
 
