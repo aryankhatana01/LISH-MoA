@@ -98,18 +98,19 @@ def eval_fn(model, data_loader, loss_fn, device):
     valid_loss = 0  # Initialize the total validation loss.
     valid_preds = []  # Initialize the list of predictions.
 
-    for data in tqdm(data_loader, total=len(data_loader)):
-        inputs, targets = data["x"].to(device), data["y"].to(
-            device
-        )  # Get the inputs and targets.
-        outputs = model(inputs)  # Pass the inputs through the model.
-        loss = loss_fn(outputs, targets)  # Compute the loss for this batch.
-        valid_loss += (
-            loss.item()
-        )  # Update the total validation loss by adding the batch loss.
-        valid_preds.append(
-            outputs.sigmoid().detach().cpu().numpy()
-        )  # Append the predictions to the list.
+    with torch.no_grad():  # Disable gradient calculation for computation efficiency.
+        for data in tqdm(data_loader, total=len(data_loader)):
+            inputs, targets = data["x"].to(device), data["y"].to(
+                device
+            )  # Get the inputs and targets.
+            outputs = model(inputs)  # Pass the inputs through the model.
+            loss = loss_fn(outputs, targets)  # Compute the loss for this batch.
+            valid_loss += (
+                loss.item()
+            )  # Update the total validation loss by adding the batch loss.
+            valid_preds.append(
+                outputs.sigmoid().detach().cpu().numpy()
+            )  # Append the predictions to the list.
 
     valid_preds = np.concatenate(valid_preds)  # Concatenate the predictions.
 
