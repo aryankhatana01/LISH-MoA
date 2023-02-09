@@ -10,3 +10,7 @@ class CFG:
     batch_size = 32
     model_dir = '../models/'
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    n_components = 50
+    hidden_size = 256
+    n_splits = 5
+    
