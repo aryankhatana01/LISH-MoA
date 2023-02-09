@@ -6,7 +6,6 @@ We need to first apply the same feature engineering on the test data as we did o
 '''
 
 import torch
-import torch.nn as nn
 from torch.utils.data import DataLoader
 import pandas as pd
 import numpy as np
@@ -29,9 +28,7 @@ sample_submission = pd.read_csv('../input/sample_submission.csv')
 test_features = utils.PCA_g(test_features, n_components=CFG.n_components)  # PCA for genes
 test_features = utils.PCA_c(test_features, n_components=CFG.n_components)  # PCA for cells
 
-test = test_features[test_features['cp_type'] != 'ctl_vehicle'].reset_index(drop=True)  # Removing the control samples
-
-test = test.drop('cp_type', axis=1)  # Dropping the cp_type column because it is not needed anymore
+test = test_features.drop('cp_type', axis=1)  # Dropping the cp_type column because it is not needed anymore
 test['cp_time'] = test['cp_time'].astype(str)  # To fix a warning
 test['cp_dose'] = test['cp_dose'].astype(str)  # To fix a warning
 test = pd.get_dummies(test, columns=['cp_time', 'cp_dose'])  # One hot encoding the cp_time and cp_dose columns
@@ -125,10 +122,12 @@ def infer_k_folds():
 
 if __name__ == '__main__':
     predictions = infer_k_folds()  # Infer on all the folds.
+    print(predictions.shape)
 
     # Create the submission file.
     print("Generating submission file...")
     submission = pd.DataFrame(columns=sample_submission.columns)  # Create a submission dataframe with columns.
     submission['sig_id'] = test['sig_id']  # filling the sig_id column.
     submission.iloc[:, 1:] = predictions  # filling the predictions columns.
+    submission = submission.fillna(0.0)  # filling the NaN values with 0.0.
     submission.to_csv('../submission.csv', index=False)  # Saving the submission file.
