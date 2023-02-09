@@ -24,8 +24,10 @@ I'll be creating simple Linear Neural Network with a little feature engineering 
 First, I'll be creating the Dataset class to take input data and retrieve the features and the targets. The features would be in ```train_features.csv``` and the targets would be in ```train_targets_scored.csv```.
 
 ## Structure of the Project
-- ```input``` - Contains the input data
-- ```src``` - Contains the source code
+- ```input/``` - Contains the input data
+- ```src/``` - Contains the source code
+- ```inference/``` - Contains the inference/test code
+- ```models/``` - Contains best models for each fold
 - ```README.md``` - This file
 - ```requirements.txt``` - Contains the requirements for the project
 - ```create_folds.py``` - Creates the validation folds for the data
@@ -38,3 +40,9 @@ First, I'll be creating the Dataset class to take input data and retrieve the fe
 - ```utils.py``` - Contains some utility functions
 - ```config.py``` - Contains the configuration for the project
 maybe more...
+
+### In the ```inference``` folder, we have the following files:
+- ```dataset.py``` - Contains the Test Dataset class
+- ```model.py``` - Contains the Model class
+- ```config.py``` - Contains the test configuration for the project
+- ```inference.py``` - Contains the inference loop
