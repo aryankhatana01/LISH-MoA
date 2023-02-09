@@ -2,7 +2,7 @@
 *.pth
 
 # Input Data
-*.csv
+input/
 
 # pycache
 __pycache__/
