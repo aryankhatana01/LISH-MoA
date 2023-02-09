@@ -24,7 +24,6 @@ train_targets_scored = pd.read_csv('../input/train_folds.csv')
 # Applying the feature engineering on the training data.
 train_features = utils.PCA_g(train_features, n_components=CFG.n_components)  # PCA for genes
 train_features = utils.PCA_c(train_features, n_components=CFG.n_components)  # PCA for cells
-train_features = utils.feature_selection(train_features, threshold=0.5)  # Feature selection using variance thresholding
 
 
 train = train_features.merge(train_targets_scored, on='sig_id')  # Merging the features and targets
