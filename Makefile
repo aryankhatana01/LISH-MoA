@@ -6,3 +6,6 @@ run_training:
 
 format_code:
 	black .
+
+run_inference:
+	cd inference && python3 inference.py
